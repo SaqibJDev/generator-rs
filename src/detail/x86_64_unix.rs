@@ -9,7 +9,7 @@ pub extern "sysv64" fn gen_init(a1: usize, a2: *mut usize) -> ! {
 }
 
 cfg_select! {
-    target_os = "macos" => {
+    target_vendor = "apple" => {
         std::arch::global_asm!(include_str!("asm/asm_x86_64_sysv_macho.S"));
     }
     _ => {
